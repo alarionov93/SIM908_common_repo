@@ -1,0 +1,85 @@
+AT+CSTT="internet.beeline.ru","beeline","beeline"
+
+OK
+AT+SAPBR=1,1
+
+OK
+AT+HTTPINIT
+
+OK
+AT+HTTPPARA="CONTENT","application/x-www-form-urlencoded"
+
+OK
+AT+HTTPPARA="URL","http://a-larionov.ru:2222"
+
+OK
+AT+HTTPPARA="CID",1
+
+OK
+AT+HTTPACTION=0
+
+OK
+
++HTTPACTION:0,200,163
+AT+HTTPREAD
+
++HTTPREAD:163
+<html>
+  <head>
+    <title>Welcome to a-larionov.ru!</title>
+  </head>
+  <body>
+    <h1>Success! The a-larionov.ru virtual host is working!</h1>
+  </body>
+</html>
+
+OK
+AT+HTTPTERM
+
+OK
+AT+HTTPINIT
+
+OK
+AT+HTTPPARA?
+
++HTTPPARA: 
+CID: 1
+URL: 
+UA: SIMCOM_MODULE
+PROIP: 0.0.0.0
+PROPORT: 0
+REDIR: 0
+BREAK: 0
+BREAKEND: 0
+TIMEOUT: 120
+CONTENT: 
+
+OK
+AT+HTTPPARA="CONTENT","application/x-www-form-urlencoded"
+
+OK
+AT+HTTPPARA="URL","http://a-larionov.ru:2222"
+
+OK
+AT+HTTPPARA="CID",1
+
+OK
+AT+HTTPACTION=0
+
+OK
+
++HTTPACTION:0,200,163
+AT+HTTPREAD
+
++HTTPREAD:163
+<html>
+  <head>
+    <title>Welcome to a-larionov.ru!</title>
+  </head>
+  <body>
+    <h1>Success! The a-larionov.ru virtual host is working!</h1>
+  </body>
+</html>
+
+OK
+

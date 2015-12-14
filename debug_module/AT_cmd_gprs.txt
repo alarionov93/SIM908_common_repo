@@ -1,0 +1,45 @@
+AT+SAPBR=3,1,"CONTYPE","GPRS";
+
+AT+SAPBR=3,1,"APN","internet.beeline.ru";
+
+AT+SAPBR=3,1,"USER","beeline";
+
+AT+SAPBR=3,1,"PWD","beeline";
+
+AT+SAPBR=4,1;
+
+Initiate the HTTP service,
+AT+HTTPINIT
+OK
+
+Set the HTTP session.
+AT+HTTPPARA="CID",1
+OK
+
+Set the HTPP URL
+AT+HTTPPARA="URL","www.a-larionov.ru:2222";
+
+Start the session
+AT+HTTPACTION=0
+OK
+
++HTTPACTION:0,601,0
+
+The above AT response code (601) for HTTP session start indicates that there is a network error. Then make sure that the PDP context is setup properly.
+
+IF the HTTP session is sucessful, it should return code of ’200′,
+AT+HTTPACTION=0
+OK
++HTTPACTION:0,200,4
+
+Above HTTP GET request is sucessful and it returned 4 bytes.
+
+To read the data of the HTTP server,
+AT+HTTPREAD
++HTTPREAD:4
+test
+OK
+
+To terminate the HTTP service,
+AT+HTTPTERM
+OK
