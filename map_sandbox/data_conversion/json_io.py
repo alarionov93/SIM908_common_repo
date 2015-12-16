@@ -3,7 +3,7 @@ import serial
 import time
 import sys
 
-data_last = "data"+str(time.time())+".json"
+data_last = "data.json"
 coords_log = "coords.log"
 
 def read_file():
@@ -52,7 +52,10 @@ def read_coordinates(source) :
 			lon = splitted[1]
 			# speed = splitted[2]
 			# course = splited[3]
-			route.append([lat, lon])
+			if float(lat) > 0 and float(lon) > 0:
+				route.append([lat, lon])
+			else:
+				print("NULL coords!")
 	return route
 
 

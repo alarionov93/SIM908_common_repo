@@ -1,4 +1,4 @@
-var gpsLogFilePath = "/data_conversion/data1450131659.22.json";
+var gpsLogFilePath = "../data_conversion/data.json";
 
 (function(){
 	ymaps.ready(init);
@@ -14,7 +14,7 @@ var gpsLogFilePath = "/data_conversion/data1450131659.22.json";
     	});
       
       // setInterval(function(){
-        $.get('/'+gpsLogFile, function(data) {
+        $.get('/'+gpsLogFilePath, function(data) {
           if (shown != null) {
             shown.removeFromMap(myMap);
           }
