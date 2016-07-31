@@ -3,8 +3,8 @@
 echo "true"
 while [[ true ]]; do
 
-printf "AT\r\n" > /dev/smd0
+printf "AT+CSCLK=2\r\n" > /dev/ttyUSB1
 
-sleep 5
+sleep 0
 
 done
